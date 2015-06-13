@@ -39,7 +39,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 vmalloc=400M utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags androidboot.write_protect=0
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.selinux=permissive androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 vmalloc=400M utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags androidboot.write_protect=0
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -58,7 +58,7 @@ AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
 AUDIO_FEATURE_DISABLED_DS1_DOLBY_DDP := true
 AUDIO_FEATURE_DISABLED_SSR := true
 BOARD_USES_ALSA_AUDIO := true
-TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_QCOM_AUDIO_VARIANT := caf-bfam
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
@@ -71,13 +71,10 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Classpath
 PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
 
-# CMHW
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
-
 # Display
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-TARGET_QCOM_DISPLAY_VARIANT := caf-new
+TARGET_QCOM_DISPLAY_VARIANT := caf-bfam
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
@@ -90,7 +87,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 # Media
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-TARGET_QCOM_MEDIA_VARIANT := caf-new
+TARGET_QCOM_MEDIA_VARIANT := caf-bfam
 
 # Motorola
 TARGET_USES_MOTOROLA_LOG := true
@@ -184,3 +181,9 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
 WIFI_DRIVER_MODULE_NAME := "wlan"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# TWRP
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+#TW_BRIGHTNESS_PATH := /sys/class/backlight/lcd-backlight/brightness
+#TW_MAX_BRIGHTNESS := 126
+TW_IGNORE_MAJOR_AXIS_0 := true

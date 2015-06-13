@@ -122,13 +122,6 @@ PRODUCT_PACKAGES += \
     resize2fs \
     setup_fs
 
-# FM
-PRODUCT_PACKAGES += \
-    FM2 \
-    FMRecord \
-    libqcomfm_jni \
-    qcom.fmradio
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8226
@@ -205,9 +198,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
 
+# TWRP
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/twrp.fstab:recovery/root/etc/twrp.fstab
+
 # Torch
 PRODUCT_PACKAGES += \
-    Torch
+    OmniTorch
 
 # USB
 PRODUCT_PACKAGES += \
